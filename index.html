@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marco Esposito</title>
+  <meta name="description" content="Marco Esposito — in Arbeit." />
+  <meta name="author" content="Marco Esposito" />
+  <meta name="robots" content="index, follow" />
+
+  <!-- Open Graph / LinkedIn / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://marcoesposito.at/" />
+  <meta property="og:title" content="Marco Esposito" />
+  <meta property="og:description" content="In Arbeit." />
+  <meta property="og:locale" content="de_AT" />
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Marco Esposito" />
+  <meta name="twitter:description" content="In Arbeit." />
+
+  <!-- Favicon (inline SVG — einfacher kleiner Kreis in Visavi-Blau) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230F6384'/%3E%3Ctext x='50' y='68' font-family='system-ui,-apple-system,sans-serif' font-size='56' font-weight='500' fill='white' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E" />
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+
+    body {
+      background: #0F6384;
+      color: #E8F2F7;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding: 3rem 2.5rem;
+    }
+
+    .top {
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(232, 242, 247, 0.7);
+    }
+
+    .center {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 1.5rem;
+      padding: 2rem 0;
+    }
+
+    h1 {
+      font-size: clamp(40px, 8vw, 72px);
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.02em;
+      color: #FFFFFF;
+    }
+
+    .status {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
+      color: rgba(232, 242, 247, 0.85);
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #9FE1CB;
+      display: inline-block;
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.55; transform: scale(0.85); }
+    }
+
+    .bottom {
+      font-size: 13px;
+      color: rgba(232, 242, 247, 0.55);
+    }
+
+    @media (max-width: 600px) {
+      body {
+        padding: 2rem 1.5rem;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .dot { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top">marcoesposito.at</header>
+
+  <main class="center">
+    <h1>Marco Esposito</h1>
+    <div class="status">
+      <span class="dot" aria-hidden="true"></span>
+      <span>In Arbeit</span>
+    </div>
+  </main>
+
+  <footer class="bottom">Vorarlberg, AT</footer>
+
+</body>
+</html>
