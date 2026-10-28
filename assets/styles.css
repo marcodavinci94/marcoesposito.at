@@ -29,6 +29,53 @@
   --ease: cubic-bezier(.22,.61,.36,1);
 }
 
+/* ── style: Roboto ────────────────────────────────────────────
+   Same layout, one type family. Headlines get weight instead of
+   a serif's contrast. */
+
+html[data-style="roboto"]{
+  --f-display: "Roboto Flex", "Roboto", system-ui, sans-serif;
+  --f-sans: "Roboto Flex", "Roboto", system-ui, sans-serif;
+  --f-mono: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+html[data-style="roboto"] body{ letter-spacing:0; font-variation-settings:"opsz" 16 }
+html[data-style="roboto"] :is(.h2,.card__h,.track__h,.issue__t,.foot__name){
+  font-weight:640; letter-spacing:-0.03em; font-variation-settings:"opsz" 96;
+}
+html[data-style="roboto"] .h2{ font-size:clamp(30px,4.1vw,52px); line-height:1.08 }
+html[data-style="roboto"] .hero__name{
+  font-weight:760; letter-spacing:-0.045em; line-height:.9;
+  font-size:clamp(54px,9.2vw,126px); font-variation-settings:"opsz" 144;
+}
+html[data-style="roboto"] :is(.stat__n,.lab__num){
+  font-weight:300; letter-spacing:-0.04em; font-variation-settings:"opsz" 144;
+}
+html[data-style="roboto"] .issue__t{ font-size:clamp(19px,1.8vw,22px); line-height:1.25 }
+html[data-style="roboto"] .quote p{
+  font-style:normal; font-weight:400; letter-spacing:-0.015em;
+  font-size:clamp(20px,2.3vw,27px); font-variation-settings:"opsz" 48;
+}
+html[data-style="roboto"] .eyebrow{ letter-spacing:.14em }
+
+/* ── review switcher (never shown on marcoesposito.at) ─────── */
+
+.stylepick{
+  position:fixed; left:16px; bottom:16px; z-index:150;
+  display:flex; align-items:center; gap:4px;
+  padding:5px; border-radius:999px;
+  background:rgba(6,32,43,.86);
+  backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 12px 30px -10px rgba(0,0,0,.6);
+  font-family:"Roboto Mono", ui-monospace, monospace; font-size:11px; color:#fff;
+}
+.stylepick__l{ padding:0 8px 0 10px; color:rgba(255,255,255,.55); letter-spacing:.08em; text-transform:uppercase }
+.stylepick button{
+  padding:7px 12px; border-radius:999px; color:rgba(255,255,255,.7);
+  transition:background .2s, color .2s;
+}
+.stylepick button[aria-pressed="true"]{ background:var(--amber); color:var(--ink); font-weight:500 }
+
 *,*::before,*::after{ box-sizing:border-box; margin:0; padding:0 }
 
 html{ scroll-behavior:smooth; -webkit-text-size-adjust:100% }
@@ -100,6 +147,7 @@ button{ font:inherit; color:inherit; background:none; border:none; cursor:pointe
 
 .nav{
   position:fixed; inset:0 0 auto 0; z-index:100;
+  padding-top:env(safe-area-inset-top, 0px);
   transition:background .35s var(--ease), backdrop-filter .35s var(--ease), border-color .35s var(--ease);
   border-bottom:1px solid transparent;
 }

@@ -415,6 +415,33 @@
   var year = document.getElementById("year");
   if (year) year.textContent = new Date().getFullYear();
 
+  /* style switcher for reviewing — only away from the live domain */
+  if (!/(^|\.)marcoesposito\.at$/.test(location.hostname)) {
+    var STYLES = [["roboto", "Roboto"], ["editorial", "Editorial"]];
+    var pick = document.createElement("div");
+    pick.className = "stylepick";
+    pick.setAttribute("role", "group");
+    pick.setAttribute("aria-label", "Design-Stil");
+    pick.innerHTML = '<span class="stylepick__l">Stil</span>' + STYLES.map(function (s) {
+      return '<button type="button" data-style="' + s[0] + '">' + s[1] + "</button>";
+    }).join("");
+    var mark = function () {
+      var cur = document.documentElement.dataset.style || "roboto";
+      pick.querySelectorAll("button").forEach(function (b) {
+        b.setAttribute("aria-pressed", String(b.dataset.style === cur));
+      });
+    };
+    pick.addEventListener("click", function (ev) {
+      var b = ev.target.closest("button");
+      if (!b) return;
+      document.documentElement.dataset.style = b.dataset.style;
+      try { localStorage.setItem("me-style", b.dataset.style); } catch (err) { /* private mode */ }
+      mark();
+    });
+    mark();
+    document.body.appendChild(pick);
+  }
+
   /* filmstrip: duplicate the items once so the marquee loops seamlessly */
   var strip = document.getElementById("stripTrack");
   if (strip && !reduced) {
